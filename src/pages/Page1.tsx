@@ -20,7 +20,7 @@ const Page1: React.FC = () => {
         </IonToolbar>
       </IonHeader>
 
-      <IonButton routerLink="/Camera-Endemic-tree/app/page1/details" expand="full">
+      <IonButton routerLink="/kalasan-cam/app/page1/details" expand="full">
         Details
       </IonButton>
   

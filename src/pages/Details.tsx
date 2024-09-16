@@ -7,7 +7,7 @@ const Detail: React.FC = () => {
       <IonHeader>
         <IonToolbar>
           <IonButtons slot='start'>
-            <IonBackButton defaultHref='/Camera-Endemic-tree/app/page1'/>
+            <IonBackButton defaultHref='/kalasan-cam/app/page1'/>
 
           </IonButtons>
           <IonTitle>Details</IonTitle>

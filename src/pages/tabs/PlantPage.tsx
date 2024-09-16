@@ -9,9 +9,9 @@ import {
   IonModal,
   IonToast,
 } from '@ionic/react';
-import { Camera, CameraResultType, CameraSource } from '@capacitor/camera'; 
+import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import EXIF from 'exif-js';
-import { useHistory } from 'react-router-dom'; // Import useHistory for navigation
+import { useHistory } from 'react-router-dom';
 
 const RadioPage: React.FC = () => {
   const [lat, setLat] = useState<string>('');
@@ -35,15 +35,13 @@ const RadioPage: React.FC = () => {
 
   const handleImageInput = (event: any) => {
     const file = event.target.files[0];
-    
-    // Check if file is a supported image type (JPEG or TIFF)
+
     if (file && (file.type === 'image/jpeg' || file.type === 'image/tiff')) {
       const reader = new FileReader();
       reader.onload = (e) => {
         setImagePreview(e.target?.result as string);
 
         EXIF.getData(file, () => {
-          // Check if EXIF data is available
           const latData = EXIF.getTag(file, 'GPSLatitude');
           const lonData = EXIF.getTag(file, 'GPSLongitude');
           const latRef = EXIF.getTag(file, 'GPSLatitudeRef') || 'N';
@@ -63,7 +61,6 @@ const RadioPage: React.FC = () => {
             setLat(latitude.toString());
             setLon(longitude.toString());
 
-            // Fetch address based on latitude and longitude
             fetchLocationData(latitude, longitude);
           } else {
             setLat('No GPS data available');
@@ -105,24 +102,61 @@ const RadioPage: React.FC = () => {
       });
   };
 
-  // Capture photo
   const capturePhoto = async () => {
     const photo = await Camera.getPhoto({
       resultType: CameraResultType.DataUrl,
       source: CameraSource.Camera,
       quality: 90,
     });
-
+  
     if (photo.dataUrl) {
       setImagePreview(photo.dataUrl);
+  
+      // Create an Image element from the base64 data URL
+      const img = new Image();
+      img.src = photo.dataUrl;
+  
+      img.onload = function () {
+        EXIF.getData(img, function () {
+          const latData = EXIF.getTag(this, 'GPSLatitude');
+          const lonData = EXIF.getTag(this, 'GPSLongitude');
+          const latRef = EXIF.getTag(this, 'GPSLatitudeRef') || 'N';
+          const lonRef = EXIF.getTag(this, 'GPSLongitudeRef') || 'E';
+          const date = EXIF.getTag(this, 'DateTimeOriginal');
+  
+          if (latData && lonData) {
+            const toDecimal = (degree: number[], ref: string) => {
+              const decimal = degree[0] + degree[1] / 60 + degree[2] / 3600;
+              return ref === 'S' || ref === 'W' ? -decimal : decimal;
+            };
+  
+            const latitude = toDecimal(latData, latRef);
+            const longitude = toDecimal(lonData, lonRef);
+  
+            setLat(latitude.toString());
+            setLon(longitude.toString());
+  
+            // Fetch address based on latitude and longitude
+            fetchLocationData(latitude, longitude);
+          } else {
+            setLat('No GPS data available');
+            setLon('No GPS data available');
+          }
+  
+          if (date) {
+            setDateTime(date);
+          } else {
+            setDateTime('No date available');
+          }
+        });
+      };
     }
   };
+  
 
   const submitForm = () => {
-    // Simulate form submission and navigate to MapPage with coordinates
     setShowToast(true);
-    
-    // After the toast, navigate to MapPage and pass latitude and longitude
+
     history.push({
       pathname: '/map', // Assuming the map page route is '/map'
       state: { lat, lon }, // Pass lat and lon to the map page

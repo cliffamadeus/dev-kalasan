@@ -14,22 +14,22 @@ const Menu: React.FC = () => {
   const sidemenuItems = [
     {
       name:'Home',
-      url:'/Camera-Endemic-tree/app/home',
+      url:'/kalasan-cam/app/home',
       icon:homeOutline
     },
     {
       name:'Page 1',
-      url:'/Camera-Endemic-tree/app/page1',
+      url:'/kalasan-cam/app/page1',
       icon:homeOutline
     },
     {
       name:'Page 2',
-      url:'/Camera-Endemic-tree/app/page2',
+      url:'/kalasan-cam/app/page2',
       icon:newspaperOutline
     },
     {
       name:'About',
-      url:'/Camera-Endemic-tree/app/about',
+      url:'/kalasan-cam/app/about',
       icon:newspaperOutline
     }
   ]
@@ -58,7 +58,7 @@ const Menu: React.FC = () => {
             routerLink="/" 
             routerDirection="back" 
             expand="full" 
-            color="Camera-Endemic-tree-secondary text-white"
+            color="landong-secondary text-white"
             > 
             <p className="home-tab">Logout</p>
           </IonButton>
@@ -69,13 +69,13 @@ const Menu: React.FC = () => {
       {/* Routers */}
       <IonRouterOutlet id="main">
         
-        <Route exact path="/Camera-Endemic-tree/app/home" component={Home} />
-        <Route exact path="/Camera-Endemic-tree/app/page1" component={Page1} />
-        <Route exact path="/Camera-Endemic-tree/app/page1/details" component={Details} />
-        <Route exact path="/Camera-Endemic-tree/app/page2" component={Page2} />
-        <Route exact path="/Camera-Endemic-tree/app/About" component={About} />
-        <Route exact path="/Camera-Endemic-tree/app">
-          <Redirect to="/Camera-Endemic-tree/app/home" />
+        <Route exact path="/kalasan-cam/app/home" component={Home} />
+        <Route exact path="/kalasan-cam/app/page1" component={Page1} />
+        <Route exact path="/kalasan-cam/app/page1/details" component={Details} />
+        <Route exact path="/kalasan-cam/app/page2" component={Page2} />
+        <Route exact path="/kalasan-cam/app/About" component={About} />
+        <Route exact path="/kalasan-cam/app">
+          <Redirect to="/kalasan-cam/app/home" />
         </Route>
 
       </IonRouterOutlet>

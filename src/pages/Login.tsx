@@ -19,7 +19,7 @@ const Login: React.FC = () => {
   const navigation = useIonRouter();
 
   const doLogin = () => {
-    navigation.push('/landong/app','forward','replace');
+    navigation.push('/Camera-Endemic-tree/app','forward','replace');
   }
 
   return (

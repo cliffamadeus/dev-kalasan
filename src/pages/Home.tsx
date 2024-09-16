@@ -29,24 +29,24 @@ const Page1: React.FC = () => {
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
-          <Route path="/landong/app/home/map" render={() => <MapPage />} exact={true} />
-          <Route path="/landong/app/home/plant" render={() => <PlantPage />} exact={true} />
-          <Route path="/landong/app/home/stats" render={() => <StatsPage />} exact={true} />
-          <Redirect exact from="/landong/app/home" to="/landong/app/home/stats" />
+          <Route path="/Camera-Endemic-tree/app/home/map" render={() => <MapPage />} exact={true} />
+          <Route path="/Camera-Endemic-tree/app/home/plant" render={() => <PlantPage />} exact={true} />
+          <Route path="/Camera-Endemic-tree/app/home/stats" render={() => <StatsPage />} exact={true} />
+          <Redirect exact from="/Camera-Endemic-tree/app/home" to="/Camera-Endemic-tree/app/home/stats" />
         </IonRouterOutlet>
 
         <IonTabBar slot="bottom" color="landong-secondary">
-          <IonTabButton  className="home-tab" tab="map" href="/landong/app/home/map">
+          <IonTabButton  className="home-tab" tab="map" href="/Camera-Endemic-tree/app/home/map">
             <IonIcon  icon={mapSharp} />
             <IonLabel>Map</IonLabel>
           </IonTabButton>
 
-          <IonTabButton  className="home-tab" tab="plant" href="/landong/app/home/plant">
+          <IonTabButton  className="home-tab" tab="plant" href="/Camera-Endemic-tree/app/home/plant">
             <IonIcon  icon={leaf} />
             <IonLabel>Plant Now</IonLabel>
           </IonTabButton>
 
-          <IonTabButton  className="home-tab" tab="stats" href="/landong/app/home/stats">
+          <IonTabButton  className="home-tab" tab="stats" href="/Camera-Endemic-tree/app/home/stats">
             <IonIcon className="home-tab-icon" icon={statsChartOutline} />
             <IonLabel>Stats</IonLabel>
           </IonTabButton>

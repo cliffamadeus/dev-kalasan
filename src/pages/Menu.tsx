@@ -4,9 +4,9 @@ import { homeOutline, newspaperOutline, logOutOutline } from 'ionicons/icons';
 import { Redirect, Route } from 'react-router-dom';
 import Home from './Home';
 import Page1 from './Page1'
-import Page2 from './Page2';
 import Details from './Details';
 import About from './About/About';
+import Test from './Test';
 import './Home.css';
 
 
@@ -23,8 +23,8 @@ const Menu: React.FC = () => {
       icon:homeOutline
     },
     {
-      name:'Page 2',
-      url:'/dev-kalasan/app/page2',
+      name:'Test',
+      url:'/dev-kalasan/app/test',
       icon:newspaperOutline
     },
     {
@@ -72,7 +72,7 @@ const Menu: React.FC = () => {
         <Route exact path="/dev-kalasan/app/home" component={Home} />
         <Route exact path="/dev-kalasan/app/page1" component={Page1} />
         <Route exact path="/dev-kalasan/app/page1/details" component={Details} />
-        <Route exact path="/dev-kalasan/app/page2" component={Page2} />
+        <Route exact path="/dev-kalasan/app/test" component={Test} />
         <Route exact path="/dev-kalasan/app/About" component={About} />
         <Route exact path="/dev-kalasan/app">
           <Redirect to="/dev-kalasan/app/home" />

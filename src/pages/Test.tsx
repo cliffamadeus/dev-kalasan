@@ -6,14 +6,14 @@ import {
   IonButton, IonIcon
 } from '@ionic/react';
 import { albums, camera } from 'ionicons/icons';
-import './Page2.css';
+import './Test.css';
 import EXIF from 'exif-js';
 
 interface ExifData {
   [key: string]: string;
 }
 
-const Page2: React.FC = () => {
+const Test: React.FC = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [exifData, setExifData] = useState<ExifData | null>(null);
   const [latitude, setLatitude] = useState<string>('');
@@ -81,7 +81,7 @@ const Page2: React.FC = () => {
           <IonButtons slot='start'>
             <IonMenuButton></IonMenuButton>
           </IonButtons>
-          <IonTitle>Page 2</IonTitle>
+          <IonTitle>Test</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
@@ -96,6 +96,7 @@ const Page2: React.FC = () => {
             <IonCardTitle>Add Record</IonCardTitle>
             <IonCardSubtitle>Select an image with EXIF Metadata to start</IonCardSubtitle>
           </IonCardHeader>
+          
 
           <div className="plant-flex-container">
             <IonButton onClick={handleButtonClick}>
@@ -108,9 +109,7 @@ const Page2: React.FC = () => {
               hidden
               onChange={handleFileChange}
             />
-            {selectedFile && (
-              <p>Selected file: {selectedFile.name}</p>
-            )}
+           
             
             <IonButton>
               <IonIcon slot="start" icon={camera}></IonIcon>
@@ -119,6 +118,9 @@ const Page2: React.FC = () => {
           </div>
 
           <IonCardContent>
+            {selectedFile && (
+                <p>Selected file: {selectedFile.name}</p>
+            )}
             <p>Latitude: {latitude}</p>
             <p>Longitude: {longitude}</p>
             <p>Date Time: {dateTime}</p>
@@ -129,4 +131,4 @@ const Page2: React.FC = () => {
   );
 };
 
-export default Page2;
+export default Test;

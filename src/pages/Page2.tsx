@@ -1,12 +1,14 @@
+import React, { useState } from 'react';
 import { IonButtons, 
   IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar,IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle,
   IonButton, IonIcon
 } from '@ionic/react';
 import { albums, camera } from 'ionicons/icons';
-import './Home.css';
+import './Page2.css';
 
 
 const Page2: React.FC = () => {
+ 
   return (
     <IonPage>
       <IonHeader>
@@ -27,11 +29,23 @@ const Page2: React.FC = () => {
 
         <IonCard>
       <IonCardHeader>
-        <IonCardTitle>Card Title</IonCardTitle>
-        <IonCardSubtitle>Card Subtitle</IonCardSubtitle>
+        <IonCardTitle>Add Record</IonCardTitle>
+        <IonCardSubtitle>Select an image with EXIF Metadata to start</IonCardSubtitle>
       </IonCardHeader>
-      
 
+      <div className="plant-flex-container">
+      <IonButton>
+      <IonIcon slot="start" icon={albums}></IonIcon>        
+        Gallery
+      </IonButton>
+    
+        <IonButton>
+          <IonIcon slot="start" icon={camera}></IonIcon>
+          Camera
+        </IonButton>
+      </div>
+    
+      
       <IonCardContent>Here's a small text description for the card content. Nothing more, nothing less.</IonCardContent>
     </IonCard>
        

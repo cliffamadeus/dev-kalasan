@@ -19,7 +19,7 @@ const Login: React.FC = () => {
   const navigation = useIonRouter();
 
   const doLogin = () => {
-    navigation.push('/kalasan-cam/app','forward','replace');
+    navigation.push('/dev-kalasan/app','forward','replace');
   }
 
   return (

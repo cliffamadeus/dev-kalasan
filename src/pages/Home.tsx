@@ -29,24 +29,24 @@ const Page1: React.FC = () => {
     <IonReactRouter>
       <IonTabs>
         <IonRouterOutlet>
-          <Route path="/kalasan-cam/app/home/map" render={() => <MapPage />} exact={true} />
-          <Route path="/kalasan-cam/app/home/plant" render={() => <PlantPage />} exact={true} />
-          <Route path="/kalasan-cam/app/home/stats" render={() => <StatsPage />} exact={true} />
-          <Redirect exact from="/kalasan-cam/app/home" to="/kalasan-cam/app/home/stats" />
+          <Route path="/dev-kalasan/app/home/map" render={() => <MapPage />} exact={true} />
+          <Route path="/dev-kalasan/app/home/plant" render={() => <PlantPage />} exact={true} />
+          <Route path="/kalasandev-/app/home/stats" render={() => <StatsPage />} exact={true} />
+          <Redirect exact from="/dev-kalasan/app/home" to="/dev-kalasan/app/home/stats" />
         </IonRouterOutlet>
 
         <IonTabBar slot="bottom" color="landong-secondary">
-          <IonTabButton  className="home-tab" tab="map" href="/kalasan-cam/app/home/map">
+          <IonTabButton  className="home-tab" tab="map" href="/dev-kalasan/app/home/map">
             <IonIcon  icon={mapSharp} />
             <IonLabel>Map</IonLabel>
           </IonTabButton>
 
-          <IonTabButton  className="home-tab" tab="plant" href="/kalasan-cam/app/home/plant">
+          <IonTabButton  className="home-tab" tab="plant" href="/dev-kalasan/app/home/plant">
             <IonIcon  icon={leaf} />
             <IonLabel>Plant Now</IonLabel>
           </IonTabButton>
 
-          <IonTabButton  className="home-tab" tab="stats" href="/kalasan-cam/app/home/stats">
+          <IonTabButton  className="home-tab" tab="stats" href="/dev-kalasan/app/home/stats">
             <IonIcon className="home-tab-icon" icon={statsChartOutline} />
             <IonLabel>Stats</IonLabel>
           </IonTabButton>

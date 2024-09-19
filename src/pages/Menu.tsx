@@ -14,22 +14,22 @@ const Menu: React.FC = () => {
   const sidemenuItems = [
     {
       name:'Home',
-      url:'/kalasan-cam/app/home',
+      url:'/dev-kalasan/app/home',
       icon:homeOutline
     },
     {
       name:'Page 1',
-      url:'/kalasan-cam/app/page1',
+      url:'/dev-kalasan/app/page1',
       icon:homeOutline
     },
     {
       name:'Page 2',
-      url:'/kalasan-cam/app/page2',
+      url:'/dev-kalasan/app/page2',
       icon:newspaperOutline
     },
     {
       name:'About',
-      url:'/kalasan-cam/app/about',
+      url:'/dev-kalasan/app/about',
       icon:newspaperOutline
     }
   ]
@@ -69,13 +69,13 @@ const Menu: React.FC = () => {
       {/* Routers */}
       <IonRouterOutlet id="main">
         
-        <Route exact path="/kalasan-cam/app/home" component={Home} />
-        <Route exact path="/kalasan-cam/app/page1" component={Page1} />
-        <Route exact path="/kalasan-cam/app/page1/details" component={Details} />
-        <Route exact path="/kalasan-cam/app/page2" component={Page2} />
-        <Route exact path="/kalasan-cam/app/About" component={About} />
-        <Route exact path="/kalasan-cam/app">
-          <Redirect to="/kalasan-cam/app/home" />
+        <Route exact path="/dev-kalasan/app/home" component={Home} />
+        <Route exact path="/dev-kalasan/app/page1" component={Page1} />
+        <Route exact path="/dev-kalasan/app/page1/details" component={Details} />
+        <Route exact path="/dev-kalasan/app/page2" component={Page2} />
+        <Route exact path="/dev-kalasan/app/About" component={About} />
+        <Route exact path="/dev-kalasan/app">
+          <Redirect to="/dev-kalasan/app/home" />
         </Route>
 
       </IonRouterOutlet>

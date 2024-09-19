@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.1",
   "type": "module",
-  "homepage": "https://andreejavier.github.io/Camera-Endemic-tree/",
+  "homepage": "https://andreejavier.github.io/kalasan-cam/",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",

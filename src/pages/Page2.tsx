@@ -8,7 +8,26 @@ import './Page2.css';
 
 
 const Page2: React.FC = () => {
- 
+  const [selectedFile, setSelectedFile] = React.useState<File | null>(null);
+
+  const inputRef = React.createRef<HTMLInputElement>();
+
+
+  const handleButtonClick = () => {
+
+    inputRef.current?.click();
+
+  };
+
+
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+
+    const file = event.target.files?.[0];
+
+    setSelectedFile(file);
+
+  };
+
   return (
     <IonPage>
       <IonHeader>
@@ -34,18 +53,27 @@ const Page2: React.FC = () => {
       </IonCardHeader>
 
       <div className="plant-flex-container">
-      <IonButton>
+      <IonButton onClick={handleButtonClick}>
       <IonIcon slot="start" icon={albums}></IonIcon>        
         Gallery
       </IonButton>
-    
+        <input
+          ref={inputRef}
+          type="file"
+          hidden
+          onChange={handleFileChange}
+        />
+      {selectedFile && (
+        <p>Selected file: {selectedFile.name}</p>
+      )}
+      
         <IonButton>
           <IonIcon slot="start" icon={camera}></IonIcon>
           Camera
         </IonButton>
       </div>
     
-      
+    
       <IonCardContent>Here's a small text description for the card content. Nothing more, nothing less.</IonCardContent>
     </IonCard>
        
